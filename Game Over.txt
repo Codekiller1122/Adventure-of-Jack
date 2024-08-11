@@ -1,0 +1,41 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuManager : MonoBehaviour
+{
+    public GameObject mainMenuScreen;   // Reference to the main menu screen GameObject
+    public GameObject gameOverScreen;  // Reference to the game over screen GameObject
+
+    private void Start()
+    {
+        ShowMainMenuScreen();  // Show the main menu screen when the game starts
+    }
+
+    public void ShowMainMenuScreen()
+    {
+        mainMenuScreen.SetActive(true);
+        gameOverScreen.SetActive(false);
+    }
+
+    public void ShowGameOverScreen()
+    {
+        mainMenuScreen.SetActive(false);
+        gameOverScreen.SetActive(true);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("GameScene");  // Replace "GameScene" with the name of your actual game scene
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);  // Restart the current scene
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+}
+
